@@ -1,0 +1,42 @@
+ saque,depósito, estrato, tranferência.
+#POO
+class Conta:
+   def __init__(self,saldo,numeroconta, usuario,cpf):
+      self.saldo= saldo
+      self.numeroConta = numeroconta
+      self.titular = usuario
+      self.cpf = cpf
+
+   def saque(self, valor):
+        if valor <= 0:
+            print ('saldo insuficiente')
+        elif self.saldo >= valor:
+            self.saldo = self.saldo - valor
+            print (' saque realizado com sucesso')
+        else:
+            print('saldo insuficiente')
+
+   def deposito (self,conta, valor):
+       if valor <=0:
+           print ('insira valor valido')
+       else:
+           conta.saldo = conta.saldo +valor
+           print (' valor depositado com sucessso')
+   def transferencia (self, destino, valor) :
+       self.saque(valor)
+       self.deposito(destino,valor)
+       print ('transferencia realizada')
+             
+    
+conta1 = Conta( 100, '1234', 'Elaine', '987')
+conta2 = Conta( 200, '2345', 'renan', '7654')
+conta1.saque(int(input('digite valor da saque  ')))
+
+conta1.transferencia (conta2,30)
+
+#conta1.saque(int(input('digite o valor do saque ')))
+print(conta1.titular, conta1.saldo , conta1.cpf , conta1.numeroConta)
+
+#conta2.deposito(int(input('digite o valor do deposito ')))
+print(conta2.titular, conta2.saldo , conta2.cpf , conta2.numeroConta)  
+
