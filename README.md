@@ -8,8 +8,22 @@ class Conta:
       self.titular = usuario
       self.cpf = cpf
       
-conta1 = Conta( '0', '1234', 'Elaine', '987')
+ def saque(self, valor):
+        if valor <= 0:
+            print ('saldo insuficiente')
+        elif self.saldo >= valor:
+            self.saldo = self.saldo - valor
+            print (' saque realizado com sucesso')
+        else:
+            print('saldo insuficiente')
+
+   # def deposito (conta, valor):
+    
+conta1 = Conta( 100, '1234', 'Elaine', '987')
 
 print(conta1.titular, conta1.saldo , conta1.cpf , conta1.numeroConta)
+conta1.saque(int(input('didite o valor do saque ')))
+print(conta1.titular,conta1.saldo)
+
 
 
